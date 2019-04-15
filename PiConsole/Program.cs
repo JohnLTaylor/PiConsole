@@ -30,10 +30,10 @@ namespace PiConsole
         {
             Console.WriteLine("Starting PollTouchSensor");
 
-            var sensorPin = Pi.Gpio[P1.Pin11];
+            var sensorPin = Pi.Gpio[BcmPin.Gpio04];
             sensorPin.PinMode = GpioPinDriveMode.Input;
 
-            var blinkingPin = Pi.Gpio[P1.Pin16];
+            var blinkingPin = Pi.Gpio[BcmPin.Gpio23];
             blinkingPin.PinMode = GpioPinDriveMode.Output;
 
             while (!token.IsCancellationRequested)
@@ -50,7 +50,7 @@ namespace PiConsole
         {
             Console.WriteLine("Starting PollHumidityTempature");
 
-            var dataPin = Pi.Gpio[P1.Pin13];
+            var dataPin = Pi.Gpio[BcmPin.Gpio27];
 
             dataPin.PinMode = GpioPinDriveMode.Output;
             dataPin.Write(GpioPinValue.High);
